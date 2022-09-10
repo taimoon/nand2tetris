@@ -8,7 +8,7 @@ and interested in understanding and building a modern computer.
 1. The Hack is the binary code for the hack platform proposed in the project.
 2. The assembly here is custom-made for the hack platform. It is not the conventional assembly language. 
 3. Jack is a Java-like language.
-4. The assembler and jack compiler are implemented using Python and used on the hack platform.
+4. The [assembler](/06/hack_assembler.py) and [jack compiler](/11/code_generator.py) are implemented using Python and used on the hack platform.
 5. The repo does not include software tools provided by nand2tetris but can be found the same website.
 
 ## Implications and Challenges
