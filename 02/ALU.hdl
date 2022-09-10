@@ -1,0 +1,72 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/ALU.hdl
+
+/**
+ * The ALU (Arithmetic Logic Unit).
+ * Computes one of the following functions:
+ * x+y, x-y, y-x, 0, 1, -1, x, y, -x, -y, !x, !y,
+ * x+1, y+1, x-1, y-1, x&y, x|y on two 16-bit inputs, 
+ * according to 6 input bits denoted zx,nx,zy,ny,f,no.
+ * In addition, the ALU computes two 1-bit outputs:
+ * if the ALU output == 0, zr is set to 1; otherwise zr is set to 0;
+ * if the ALU output < 0, ng is set to 1; otherwise ng is set to 0.
+ */
+
+// Implementation: the ALU logic manipulates the x and y inputs
+// and operates on the resulting values, as follows:
+// if (zx == 1) set x = 0        // 16-bit constant
+// if (nx == 1) set x = !x       // bitwise not
+// if (zy == 1) set y = 0        // 16-bit constant
+// if (ny == 1) set y = !y       // bitwise not
+// if (f == 1)  set out = x + y  // integer 2's complement addition
+// if (f == 0)  set out = x & y  // bitwise and
+// if (no == 1) set out = !out   // bitwise not
+// if (out == 0) set zr = 1
+// if (out < 0) set ng = 1
+//Note: let these suboutputs be p1..pn, then maybe p1 and .. and pn works
+
+CHIP ALU {
+    IN  
+        x[16], y[16],  // 16-bit inputs        
+        zx, // zero the x input?
+        nx, // negate the x input?
+        zy, // zero the y input?
+        ny, // negate the y input?
+        f,  // compute out = x + y (if 1) or x & y (if 0)
+        no; // negate the out output?
+
+    OUT 
+        out[16], // 16-bit output
+        zr, // 1 if (out == 0), 0 otherwise
+        ng; // 1 if (out < 0),  0 otherwise
+
+    PARTS:
+	// Put you code here:
+	//zx, nx
+	Mux16(a=x, b=false, sel=zx, out=tempzx);
+	Not16(in = tempzx, out = negx);
+	Mux16(a=tempzx, b=negx, sel=nx, out=tempx);
+	//zy, ny
+	Mux16(a=y, b=false, sel=zy, out=tempzy);
+	Not16(in = tempzy, out = negy);
+	Mux16(a=tempzy, b=negy, sel=ny, out=tempy);
+	//f case
+	//x+y
+	Add16(a=tempx, b=tempy, out=f1);
+	//x&y
+	And16(a=tempx, b=tempy, out=f0);
+	Mux16(a=f0, b=f1, sel=f, out=tempOut);
+	
+	//no case
+	Not16(in=tempOut, out=negOut);
+	Mux16(a=tempOut, b=negOut, sel=no, out = out, out[0..7]=unflaggedOut1, out[8..15] = unflaggedOut2, out[15]=ng);
+	
+	//flag assignment
+	//zr
+	Or8Way(in=unflaggedOut1, out=tempzr1);
+	Or8Way(in=unflaggedOut2, out=tempzr2);
+	Or(a=tempzr1, b=tempzr2, out=tempzr);
+	Not(in=tempzr, out=zr);
+}

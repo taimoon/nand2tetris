@@ -1,0 +1,435 @@
+0 ##### @256
+1 ##### D=A
+2 ##### @SP
+3 ##### M=D
+// call Sys.init 0
+// save the caller's frame
+4 ##### @__BOOTSTRAP$Sys.init$ret.0
+5 ##### D=A
+6 ##### @SP
+7 ##### A=M
+8 ##### M=D
+9 ##### @SP
+10 ##### M=M+1
+11 ##### @LCL
+12 ##### D=M
+13 ##### @SP
+14 ##### A=M
+15 ##### M=D
+16 ##### @SP
+17 ##### M=M+1
+18 ##### @ARG
+19 ##### D=M
+20 ##### @SP
+21 ##### A=M
+22 ##### M=D
+23 ##### @SP
+24 ##### M=M+1
+25 ##### @THIS
+26 ##### D=M
+27 ##### @SP
+28 ##### A=M
+29 ##### M=D
+30 ##### @SP
+31 ##### M=M+1
+32 ##### @THAT
+33 ##### D=M
+34 ##### @SP
+35 ##### A=M
+36 ##### M=D
+37 ##### @SP
+38 ##### M=M+1
+39 ##### @5 // ARG = SP - (0 + 5) ; reposition ARG
+40 ##### D=A
+41 ##### @SP
+42 ##### D=M-D
+43 ##### @ARG
+44 ##### M=D
+45 ##### @SP//  LCL = SP ; reposition LCL
+46 ##### D=M
+47 ##### @LCL
+48 ##### M=D
+49 ##### @Sys.init
+50 ##### 0;JMP
+(__BOOTSTRAP$Sys.init$ret.0) // translated-generated label
+// end of call Sys.init 0
+// function Main.fibonacci 0
+(Main.fibonacci)
+// end of initializing local variables
+// push ARG 0
+51 ##### @ARG
+52 ##### D=M// D=ARG
+53 ##### @0
+54 ##### A=D+A// A=ARG+0
+55 ##### D=M// D=*(ARG+0)
+56 ##### @SP
+57 ##### A=M// A = SP
+58 ##### M=D// *SP = D
+59 ##### @SP
+60 ##### M=M+1// SP++
+// push const 2
+61 ##### @2
+62 ##### D=A
+63 ##### @SP
+64 ##### A=M
+65 ##### M=D
+66 ##### @SP
+67 ##### M=M+1
+// arithmetic lt
+68 ##### @SP
+69 ##### AM=M-1// SP = SP--
+70 ##### D=M// D = *SP (second arg)
+71 ##### A=A-1// A = SP-1 (first arg)
+72 ##### MD=M-D// *SP + *(SP-1)
+73 ##### @__BOOL0
+74 ##### D;JLT
+75 ##### @SP
+76 ##### A=M-1
+77 ##### M=0 // 0 represent false value
+78 ##### @__ENDBOOL0
+79 ##### 0;JMP
+(__BOOL0)
+80 ##### @SP
+81 ##### A=M-1
+82 ##### M=-1
+(__ENDBOOL0)
+// if-goto IF_TRUE
+83 ##### @SP
+84 ##### M=M-1// SP--
+85 ##### A=M// A=SP
+86 ##### D=M// D=*SP
+87 ##### @Main.fibonacci$IF_TRUE
+88 ##### D;JEQ // jump if not false (ie.: not equal to 0)
+// goto IF_FALSE
+89 ##### @Main.fibonacci$IF_FALSE
+90 ##### 0;JMP
+// label IF_TRUE
+(Main.fibonacci$IF_TRUE)
+// push ARG 0
+91 ##### @ARG
+92 ##### D=M// D=ARG
+93 ##### @0
+94 ##### A=D+A// A=ARG+0
+95 ##### D=M// D=*(ARG+0)
+96 ##### @SP
+97 ##### A=M// A = SP
+98 ##### M=D// *SP = D
+99 ##### @SP
+100 ##### M=M+1// SP++
+// return
+// return the value to the caller
+// store retaddr as temp var at R13
+101 ##### @5
+102 ##### D=A
+103 ##### @LCL
+104 ##### A=M-D
+105 ##### D=M
+106 ##### @R13// R13 = return address
+107 ##### M=D
+108 ##### @SP// *ARG = pop()
+109 ##### AM=M-1
+110 ##### D=M// return value
+111 ##### @ARG
+112 ##### A=M
+113 ##### M=D
+// reposition SP of the caller
+114 ##### @ARG// SP = ARG + 1 
+115 ##### D=M+1
+116 ##### @SP
+117 ##### M=D
+118 ##### @LCL
+119 ##### AM=M-1
+120 ##### D=M
+121 ##### @THAT
+122 ##### M=D
+123 ##### @LCL
+124 ##### AM=M-1
+125 ##### D=M
+126 ##### @THIS
+127 ##### M=D
+128 ##### @LCL
+129 ##### AM=M-1
+130 ##### D=M
+131 ##### @ARG
+132 ##### M=D
+133 ##### @LCL
+134 ##### AM=M-1
+135 ##### D=M
+136 ##### @LCL
+137 ##### M=D
+138 ##### @R13
+139 ##### A=M
+140 ##### 0;JMP
+// end of returning
+// label IF_FALSE
+(Main.fibonacci$IF_FALSE)
+// push ARG 0
+141 ##### @ARG
+142 ##### D=M// D=ARG
+143 ##### @0
+144 ##### A=D+A// A=ARG+0
+145 ##### D=M// D=*(ARG+0)
+146 ##### @SP
+147 ##### A=M// A = SP
+148 ##### M=D// *SP = D
+149 ##### @SP
+150 ##### M=M+1// SP++
+// push const 2
+151 ##### @2
+152 ##### D=A
+153 ##### @SP
+154 ##### A=M
+155 ##### M=D
+156 ##### @SP
+157 ##### M=M+1
+// arithmetic sub
+158 ##### @SP
+159 ##### AM=M-1// SP = SP--
+160 ##### D=M// D = *SP (second arg)
+161 ##### A=A-1// A = SP-1 (first arg)
+162 ##### MD=M-D// *SP + *(SP-1)
+// call Main.fibonacci 1
+// save the caller's frame
+163 ##### @Main.fibonacci$Main.fibonacci$ret.0
+164 ##### D=A
+165 ##### @SP
+166 ##### A=M
+167 ##### M=D
+168 ##### @SP
+169 ##### M=M+1
+170 ##### @LCL
+171 ##### D=M
+172 ##### @SP
+173 ##### A=M
+174 ##### M=D
+175 ##### @SP
+176 ##### M=M+1
+177 ##### @ARG
+178 ##### D=M
+179 ##### @SP
+180 ##### A=M
+181 ##### M=D
+182 ##### @SP
+183 ##### M=M+1
+184 ##### @THIS
+185 ##### D=M
+186 ##### @SP
+187 ##### A=M
+188 ##### M=D
+189 ##### @SP
+190 ##### M=M+1
+191 ##### @THAT
+192 ##### D=M
+193 ##### @SP
+194 ##### A=M
+195 ##### M=D
+196 ##### @SP
+197 ##### M=M+1
+198 ##### @6 // ARG = SP - (1 + 5) ; reposition ARG
+199 ##### D=A
+200 ##### @SP
+201 ##### D=M-D
+202 ##### @ARG
+203 ##### M=D
+204 ##### @SP//  LCL = SP ; reposition LCL
+205 ##### D=M
+206 ##### @LCL
+207 ##### M=D
+208 ##### @Main.fibonacci
+209 ##### 0;JMP
+(Main.fibonacci$Main.fibonacci$ret.0) // translated-generated label
+// end of call Main.fibonacci 1
+// push ARG 0
+210 ##### @ARG
+211 ##### D=M// D=ARG
+212 ##### @0
+213 ##### A=D+A// A=ARG+0
+214 ##### D=M// D=*(ARG+0)
+215 ##### @SP
+216 ##### A=M// A = SP
+217 ##### M=D// *SP = D
+218 ##### @SP
+219 ##### M=M+1// SP++
+// push const 1
+220 ##### @1
+221 ##### D=A
+222 ##### @SP
+223 ##### A=M
+224 ##### M=D
+225 ##### @SP
+226 ##### M=M+1
+// arithmetic sub
+227 ##### @SP
+228 ##### AM=M-1// SP = SP--
+229 ##### D=M// D = *SP (second arg)
+230 ##### A=A-1// A = SP-1 (first arg)
+231 ##### MD=M-D// *SP + *(SP-1)
+// call Main.fibonacci 1
+// save the caller's frame
+232 ##### @Main.fibonacci$Main.fibonacci$ret.1
+233 ##### D=A
+234 ##### @SP
+235 ##### A=M
+236 ##### M=D
+237 ##### @SP
+238 ##### M=M+1
+239 ##### @LCL
+240 ##### D=M
+241 ##### @SP
+242 ##### A=M
+243 ##### M=D
+244 ##### @SP
+245 ##### M=M+1
+246 ##### @ARG
+247 ##### D=M
+248 ##### @SP
+249 ##### A=M
+250 ##### M=D
+251 ##### @SP
+252 ##### M=M+1
+253 ##### @THIS
+254 ##### D=M
+255 ##### @SP
+256 ##### A=M
+257 ##### M=D
+258 ##### @SP
+259 ##### M=M+1
+260 ##### @THAT
+261 ##### D=M
+262 ##### @SP
+263 ##### A=M
+264 ##### M=D
+265 ##### @SP
+266 ##### M=M+1
+267 ##### @6 // ARG = SP - (1 + 5) ; reposition ARG
+268 ##### D=A
+269 ##### @SP
+270 ##### D=M-D
+271 ##### @ARG
+272 ##### M=D
+273 ##### @SP//  LCL = SP ; reposition LCL
+274 ##### D=M
+275 ##### @LCL
+276 ##### M=D
+277 ##### @Main.fibonacci
+278 ##### 0;JMP
+(Main.fibonacci$Main.fibonacci$ret.1) // translated-generated label
+// end of call Main.fibonacci 1
+// arithmetic add
+279 ##### @SP
+280 ##### AM=M-1// SP = SP--
+281 ##### D=M// D = *SP (second arg)
+282 ##### A=A-1// A = SP-1 (first arg)
+283 ##### MD=M+D// *SP + *(SP-1)
+// return
+// return the value to the caller
+// store retaddr as temp var at R13
+284 ##### @5
+285 ##### D=A
+286 ##### @LCL
+287 ##### A=M-D
+288 ##### D=M
+289 ##### @R13// R13 = return address
+290 ##### M=D
+291 ##### @SP// *ARG = pop()
+292 ##### AM=M-1
+293 ##### D=M// return value
+294 ##### @ARG
+295 ##### A=M
+296 ##### M=D
+// reposition SP of the caller
+297 ##### @ARG// SP = ARG + 1 
+298 ##### D=M+1
+299 ##### @SP
+300 ##### M=D
+301 ##### @LCL
+302 ##### AM=M-1
+303 ##### D=M
+304 ##### @THAT
+305 ##### M=D
+306 ##### @LCL
+307 ##### AM=M-1
+308 ##### D=M
+309 ##### @THIS
+310 ##### M=D
+311 ##### @LCL
+312 ##### AM=M-1
+313 ##### D=M
+314 ##### @ARG
+315 ##### M=D
+316 ##### @LCL
+317 ##### AM=M-1
+318 ##### D=M
+319 ##### @LCL
+320 ##### M=D
+321 ##### @R13
+322 ##### A=M
+323 ##### 0;JMP
+// end of returning
+// function Sys.init 0
+(Sys.init)
+// end of initializing local variables
+// push const 4
+324 ##### @4
+325 ##### D=A
+326 ##### @SP
+327 ##### A=M
+328 ##### M=D
+329 ##### @SP
+330 ##### M=M+1
+// call Main.fibonacci 1
+// save the caller's frame
+331 ##### @Sys.init$Main.fibonacci$ret.0
+332 ##### D=A
+333 ##### @SP
+334 ##### A=M
+335 ##### M=D
+336 ##### @SP
+337 ##### M=M+1
+338 ##### @LCL
+339 ##### D=M
+340 ##### @SP
+341 ##### A=M
+342 ##### M=D
+343 ##### @SP
+344 ##### M=M+1
+345 ##### @ARG
+346 ##### D=M
+347 ##### @SP
+348 ##### A=M
+349 ##### M=D
+350 ##### @SP
+351 ##### M=M+1
+352 ##### @THIS
+353 ##### D=M
+354 ##### @SP
+355 ##### A=M
+356 ##### M=D
+357 ##### @SP
+358 ##### M=M+1
+359 ##### @THAT
+360 ##### D=M
+361 ##### @SP
+362 ##### A=M
+363 ##### M=D
+364 ##### @SP
+365 ##### M=M+1
+366 ##### @6 // ARG = SP - (1 + 5) ; reposition ARG
+367 ##### D=A
+368 ##### @SP
+369 ##### D=M-D
+370 ##### @ARG
+371 ##### M=D
+372 ##### @SP//  LCL = SP ; reposition LCL
+373 ##### D=M
+374 ##### @LCL
+375 ##### M=D
+376 ##### @Main.fibonacci
+377 ##### 0;JMP
+(Sys.init$Main.fibonacci$ret.0) // translated-generated label
+// end of call Main.fibonacci 1
+// label WHILE
+(Sys.init$WHILE)
+// goto WHILE
+378 ##### @Sys.init$WHILE
+379 ##### 0;JMP

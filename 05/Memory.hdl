@@ -1,0 +1,56 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/Memory.hdl
+
+/**
+ * The complete address space of the Hack computer's memory,
+ * including RAM and memory-mapped I/O. 
+ * The chip facilitates read and write operations, as follows:
+ *     Read:  out(t) = Memory[address(t)](t)
+ *     Write: if load(t-1) then Memory[address(t-1)](t) = in(t-1)
+ * In words: the chip always outputs the value stored at the memory 
+ * location specified by address. If load==1, the in value is loaded 
+ * into the memory location specified by address. This value becomes 
+ * available through the out output from the next time step onward.
+ * Address space rules:
+ * Only the upper 16K+8K+1 words of the Memory chip are used. 
+ * Access to address>0x6000 is invalid. Access to any address in 
+ * the range 0x4000-0x5FFF results in accessing the screen memory 
+ * map. Access to address 0x6000 results in accessing the keyboard 
+ * memory map. The behavior in these addresses is described in the 
+ * Screen and Keyboard chip specifications given in the book.
+ */
+ //2^15 =	32E3
+//2^14 	= 	16E3 					//RAM16k
+//2^13 	= 	8E3	= 0x5FFF-0x4000		//RAM8k that reserved for screen
+//2^12	=	4E3						//RAM4k
+//2^1	=	1
+CHIP Memory {
+    IN in[16], load, address[15];
+    OUT out[16];
+
+    PARTS:
+    // Put your code here:
+	DMux(in=load, sel=address[14], a=ram, b=tempLoadIO);
+	DMux(in=true, sel=address[14], a=ramPart, b=tempIO);
+	And(a=address[14] ,b=address[13] , out=tempKeyPart);
+	
+	Not(in=tempKeyPart, out=notTempKeyPart);
+	And(a=tempIO, b=notTempKeyPart, out=screenPart);
+	And(a=tempKeyPart,b=tempIO, out=keyboardPart);
+	
+	RAM16K(in=in ,load=ram ,address=address[0..13], out=tempRam);
+	
+	Not(in=keyboardPart, out=temp);
+	And(a=tempLoadIO, b=temp, out=IO);
+	Screen(in=in, load=IO, address=address[0..12],out=tempScreen);
+	////legacy code that forgot to use built in screen
+	//DMux(in=IO, sel=address[12], a=screenPtr1, b=screenPtr2);
+	//RAM4K(in=in, load=screenPtr1, address=address[0..11], out=tempScreen1);
+	//RAM4K(in=in, load=screenPtr2, address=address[0..11], out=tempScreen2);
+	//Mux16(a=tempScreen1, b=tempScreen2, sel=address[12], out=tempScreen);
+	
+	Keyboard(out=tempKey);
+	Mux8Way16(b=tempRam, c=tempScreen, e=tempKey, sel[0]=ramPart, sel[1]=screenPart, sel[2]=keyboardPart, out=out);
+}

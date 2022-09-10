@@ -1,0 +1,4 @@
+*/.idea
+./demo
+*/__pycache__/**
+*/test_*.py

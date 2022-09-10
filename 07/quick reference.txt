@@ -1,0 +1,78 @@
+'''
+implementation order:
+1. push const
+2. arithmetic, logical
+3. local, argument, this, that
+4. pointer
+5. static
+'''
+
+'''
+VM language
+arithmetic/logical commands:
+	add, sub, neg, eq, gt, lt, and, or, not
+memory access commands:
+	push seg i
+	pop seg i
+branching commands:
+	label lbl
+	goto lbl
+	if-goto lbl
+fuction commands:
+	function fnName nVars
+	call fnName nArgs
+	return
+false = 0
+true = -1 (any values beside 0)
+'''
+
+
+'''
+semantic of push, and pop:
+push segment i - push value of segment[i] to the stack
+pop segment i - pop the stack, then popped value is stored to the segment[i]
+'''
+
+'''
+A-INSTRUCTION
+@value
+semantics: 
+	sets the A register to value
+	makes M the RAM location whose address is value
+	(M := RAM[A])
+C-INSTRUCTION
+dest = comp;jump
+dest = comp; jump where dest and jump are optional
+comp = refer to the mapping
+dest = null, M, D, MD, A, AM, AD, AMD
+jump = null, JGT, JEQ, JGE, JLT, JNE, JLE, JMP
+semantics:
+	computes the value of comp and stores the result in dest
+	if (comp jump 0) is true, 
+	jumps to execute the instruction ROM[A]
+
+R0-R15
+SP, LCL, ARG, THIS, THAT (all are reserved)
+'''
+
+'''
+the memory mapping for SP, LCL, ARG, THIS, THAT will be done in next chapter
+'''
+'''
+@SP
+A => meaningless
+M => SP
+@SP
+A=M
+M => *SP
+
+@p		// D=*p
+A=M
+D=M
+
+@p 		// p--
+M=M-1
+
+@p 		// p++
+M=M+1
+'''

@@ -1,0 +1,525 @@
+// function Sys.init 0
+(Sys.init)
+// end of initializing local variables
+// push const 4000
+0 ##### @4000
+1 ##### D=A
+2 ##### @SP
+3 ##### A=M
+4 ##### M=D
+5 ##### @SP
+6 ##### M=M+1
+// pop pointer 0
+7 ##### @SP
+8 ##### AM=M-1 // SP--
+9 ##### D=M// D=*SP
+10 ##### @THIS
+11 ##### M=D// THIS/THAT = *SP
+// push const 5000
+12 ##### @5000
+13 ##### D=A
+14 ##### @SP
+15 ##### A=M
+16 ##### M=D
+17 ##### @SP
+18 ##### M=M+1
+// pop pointer 1
+19 ##### @SP
+20 ##### AM=M-1 // SP--
+21 ##### D=M// D=*SP
+22 ##### @THAT
+23 ##### M=D// THIS/THAT = *SP
+// call Sys.main 0
+// save the caller's frame
+24 ##### @Sys.main$ret.0
+25 ##### D=A
+26 ##### @SP
+27 ##### A=M
+28 ##### M=D
+29 ##### @SP
+30 ##### M=M+1
+31 ##### @LCL
+32 ##### D=M
+33 ##### @SP
+34 ##### A=M
+35 ##### M=D
+36 ##### @SP
+37 ##### M=M+1
+38 ##### @ARG
+39 ##### D=M
+40 ##### @SP
+41 ##### A=M
+42 ##### M=D
+43 ##### @SP
+44 ##### M=M+1
+45 ##### @THIS
+46 ##### D=M
+47 ##### @SP
+48 ##### A=M
+49 ##### M=D
+50 ##### @SP
+51 ##### M=M+1
+52 ##### @THAT
+53 ##### D=M
+54 ##### @SP
+55 ##### A=M
+56 ##### M=D
+57 ##### @SP
+58 ##### M=M+1
+59 ##### @5 // ARG = SP - (0 + 5) ; reposition ARG
+60 ##### D=A
+61 ##### @SP
+62 ##### D=M-D
+63 ##### @ARG
+64 ##### M=D
+65 ##### @SP//  LCL = SP ; reposition LCL
+66 ##### D=M
+67 ##### @LCL
+68 ##### M=D
+69 ##### @Sys.main
+70 ##### 0;JMP
+(Sys.main$ret.0) // translated-generated label
+// end of call Sys.main 0
+// pop temp 1
+// addr = 5 + 1
+71 ##### @6
+72 ##### D=A// A = addr = 5 + val
+// store addr as temp var
+73 ##### @SP
+74 ##### A=M
+75 ##### M=D
+76 ##### @SP
+77 ##### AM=M-1// A=SP--
+78 ##### D=M// D=*SP
+79 ##### A=A+1
+80 ##### A=M// A = *(SP+1) = addr
+81 ##### M=D// *addr = *SP
+// label LOOP
+(Sys.Sys.init$LOOP)
+// goto LOOP
+82 ##### @Sys.Sys.init$LOOP
+83 ##### 0;JMP
+// function Sys.main 5
+(Sys.main)
+84 ##### @SP
+85 ##### A=M
+86 ##### M=0
+87 ##### @SP
+88 ##### M=M+1
+89 ##### @SP
+90 ##### A=M
+91 ##### M=0
+92 ##### @SP
+93 ##### M=M+1
+94 ##### @SP
+95 ##### A=M
+96 ##### M=0
+97 ##### @SP
+98 ##### M=M+1
+99 ##### @SP
+100 ##### A=M
+101 ##### M=0
+102 ##### @SP
+103 ##### M=M+1
+104 ##### @SP
+105 ##### A=M
+106 ##### M=0
+107 ##### @SP
+108 ##### M=M+1
+// end of initializing local variables
+// push const 4001
+109 ##### @4001
+110 ##### D=A
+111 ##### @SP
+112 ##### A=M
+113 ##### M=D
+114 ##### @SP
+115 ##### M=M+1
+// pop pointer 0
+116 ##### @SP
+117 ##### AM=M-1 // SP--
+118 ##### D=M// D=*SP
+119 ##### @THIS
+120 ##### M=D// THIS/THAT = *SP
+// push const 5001
+121 ##### @5001
+122 ##### D=A
+123 ##### @SP
+124 ##### A=M
+125 ##### M=D
+126 ##### @SP
+127 ##### M=M+1
+// pop pointer 1
+128 ##### @SP
+129 ##### AM=M-1 // SP--
+130 ##### D=M// D=*SP
+131 ##### @THAT
+132 ##### M=D// THIS/THAT = *SP
+// push const 200
+133 ##### @200
+134 ##### D=A
+135 ##### @SP
+136 ##### A=M
+137 ##### M=D
+138 ##### @SP
+139 ##### M=M+1
+// pop LCL 1
+140 ##### @LCL
+141 ##### D=M// D=LCL
+142 ##### @1
+143 ##### D=D+A// D=LCL+1=addr
+144 ##### @SP// *SP = addr+pos
+145 ##### A=M
+146 ##### M=D
+147 ##### @SP
+148 ##### AM=M-1// A = SP--
+149 ##### D=M// D = *SP
+150 ##### A=A+1// A = SP+1
+151 ##### A=M// A = *(SP+1) = addr
+152 ##### M=D// *addr = *SP
+// push const 40
+153 ##### @40
+154 ##### D=A
+155 ##### @SP
+156 ##### A=M
+157 ##### M=D
+158 ##### @SP
+159 ##### M=M+1
+// pop LCL 2
+160 ##### @LCL
+161 ##### D=M// D=LCL
+162 ##### @2
+163 ##### D=D+A// D=LCL+2=addr
+164 ##### @SP// *SP = addr+pos
+165 ##### A=M
+166 ##### M=D
+167 ##### @SP
+168 ##### AM=M-1// A = SP--
+169 ##### D=M// D = *SP
+170 ##### A=A+1// A = SP+1
+171 ##### A=M// A = *(SP+1) = addr
+172 ##### M=D// *addr = *SP
+// push const 6
+173 ##### @6
+174 ##### D=A
+175 ##### @SP
+176 ##### A=M
+177 ##### M=D
+178 ##### @SP
+179 ##### M=M+1
+// pop LCL 3
+180 ##### @LCL
+181 ##### D=M// D=LCL
+182 ##### @3
+183 ##### D=D+A// D=LCL+3=addr
+184 ##### @SP// *SP = addr+pos
+185 ##### A=M
+186 ##### M=D
+187 ##### @SP
+188 ##### AM=M-1// A = SP--
+189 ##### D=M// D = *SP
+190 ##### A=A+1// A = SP+1
+191 ##### A=M// A = *(SP+1) = addr
+192 ##### M=D// *addr = *SP
+// push const 123
+193 ##### @123
+194 ##### D=A
+195 ##### @SP
+196 ##### A=M
+197 ##### M=D
+198 ##### @SP
+199 ##### M=M+1
+// call Sys.add12 1
+// save the caller's frame
+200 ##### @Sys.add12$ret.0
+201 ##### D=A
+202 ##### @SP
+203 ##### A=M
+204 ##### M=D
+205 ##### @SP
+206 ##### M=M+1
+207 ##### @LCL
+208 ##### D=M
+209 ##### @SP
+210 ##### A=M
+211 ##### M=D
+212 ##### @SP
+213 ##### M=M+1
+214 ##### @ARG
+215 ##### D=M
+216 ##### @SP
+217 ##### A=M
+218 ##### M=D
+219 ##### @SP
+220 ##### M=M+1
+221 ##### @THIS
+222 ##### D=M
+223 ##### @SP
+224 ##### A=M
+225 ##### M=D
+226 ##### @SP
+227 ##### M=M+1
+228 ##### @THAT
+229 ##### D=M
+230 ##### @SP
+231 ##### A=M
+232 ##### M=D
+233 ##### @SP
+234 ##### M=M+1
+235 ##### @6 // ARG = SP - (1 + 5) ; reposition ARG
+236 ##### D=A
+237 ##### @SP
+238 ##### D=M-D
+239 ##### @ARG
+240 ##### M=D
+241 ##### @SP//  LCL = SP ; reposition LCL
+242 ##### D=M
+243 ##### @LCL
+244 ##### M=D
+245 ##### @Sys.add12
+246 ##### 0;JMP
+(Sys.add12$ret.0) // translated-generated label
+// end of call Sys.add12 1
+// pop temp 0
+// addr = 5 + 0
+247 ##### @5
+248 ##### D=A// A = addr = 5 + val
+// store addr as temp var
+249 ##### @SP
+250 ##### A=M
+251 ##### M=D
+252 ##### @SP
+253 ##### AM=M-1// A=SP--
+254 ##### D=M// D=*SP
+255 ##### A=A+1
+256 ##### A=M// A = *(SP+1) = addr
+257 ##### M=D// *addr = *SP
+// push LCL 0
+258 ##### @LCL
+259 ##### D=M// D=LCL
+260 ##### @0
+261 ##### A=D+A// A=LCL+0
+262 ##### D=M// D=*(LCL+0)
+263 ##### @SP
+264 ##### A=M// A = SP
+265 ##### M=D// *SP = D
+266 ##### @SP
+267 ##### M=M+1// SP++
+// push LCL 1
+268 ##### @LCL
+269 ##### D=M// D=LCL
+270 ##### @1
+271 ##### A=D+A// A=LCL+1
+272 ##### D=M// D=*(LCL+1)
+273 ##### @SP
+274 ##### A=M// A = SP
+275 ##### M=D// *SP = D
+276 ##### @SP
+277 ##### M=M+1// SP++
+// push LCL 2
+278 ##### @LCL
+279 ##### D=M// D=LCL
+280 ##### @2
+281 ##### A=D+A// A=LCL+2
+282 ##### D=M// D=*(LCL+2)
+283 ##### @SP
+284 ##### A=M// A = SP
+285 ##### M=D// *SP = D
+286 ##### @SP
+287 ##### M=M+1// SP++
+// push LCL 3
+288 ##### @LCL
+289 ##### D=M// D=LCL
+290 ##### @3
+291 ##### A=D+A// A=LCL+3
+292 ##### D=M// D=*(LCL+3)
+293 ##### @SP
+294 ##### A=M// A = SP
+295 ##### M=D// *SP = D
+296 ##### @SP
+297 ##### M=M+1// SP++
+// push LCL 4
+298 ##### @LCL
+299 ##### D=M// D=LCL
+300 ##### @4
+301 ##### A=D+A// A=LCL+4
+302 ##### D=M// D=*(LCL+4)
+303 ##### @SP
+304 ##### A=M// A = SP
+305 ##### M=D// *SP = D
+306 ##### @SP
+307 ##### M=M+1// SP++
+// arithmetic add
+308 ##### @SP
+309 ##### AM=M-1// SP = SP--
+310 ##### D=M// D = *SP (second arg)
+311 ##### A=A-1// A = SP-1 (first arg)
+312 ##### MD=M+D// *SP + *(SP-1)
+// arithmetic add
+313 ##### @SP
+314 ##### AM=M-1// SP = SP--
+315 ##### D=M// D = *SP (second arg)
+316 ##### A=A-1// A = SP-1 (first arg)
+317 ##### MD=M+D// *SP + *(SP-1)
+// arithmetic add
+318 ##### @SP
+319 ##### AM=M-1// SP = SP--
+320 ##### D=M// D = *SP (second arg)
+321 ##### A=A-1// A = SP-1 (first arg)
+322 ##### MD=M+D// *SP + *(SP-1)
+// arithmetic add
+323 ##### @SP
+324 ##### AM=M-1// SP = SP--
+325 ##### D=M// D = *SP (second arg)
+326 ##### A=A-1// A = SP-1 (first arg)
+327 ##### MD=M+D// *SP + *(SP-1)
+// return
+// return the value to the caller
+328 ##### @SP// *ARG = pop()
+329 ##### AM=M-1
+330 ##### D=M// return value
+331 ##### @ARG
+332 ##### A=M
+333 ##### M=D
+// reposition SP of the caller
+334 ##### @ARG// SP = ARG + 1 
+335 ##### D=M+1
+// store retaddr as temp var
+336 ##### @SP
+337 ##### M=D
+338 ##### @5
+339 ##### D=A
+340 ##### @LCL
+341 ##### A=M-D
+342 ##### D=M
+343 ##### @SP
+344 ##### A=M
+345 ##### M=D
+346 ##### @LCL
+347 ##### AM=M-1
+348 ##### D=M
+349 ##### @THAT
+350 ##### M=D
+351 ##### @LCL
+352 ##### AM=M-1
+353 ##### D=M
+354 ##### @THIS
+355 ##### M=D
+356 ##### @LCL
+357 ##### AM=M-1
+358 ##### D=M
+359 ##### @ARG
+360 ##### M=D
+361 ##### @LCL
+362 ##### AM=M-1
+363 ##### D=M
+364 ##### @LCL
+365 ##### M=D
+366 ##### @SP
+367 ##### A=M
+368 ##### A=M
+369 ##### 0;JMP
+// end of returning
+// function Sys.add12 0
+(Sys.add12)
+// end of initializing local variables
+// push const 4002
+370 ##### @4002
+371 ##### D=A
+372 ##### @SP
+373 ##### A=M
+374 ##### M=D
+375 ##### @SP
+376 ##### M=M+1
+// pop pointer 0
+377 ##### @SP
+378 ##### AM=M-1 // SP--
+379 ##### D=M// D=*SP
+380 ##### @THIS
+381 ##### M=D// THIS/THAT = *SP
+// push const 5002
+382 ##### @5002
+383 ##### D=A
+384 ##### @SP
+385 ##### A=M
+386 ##### M=D
+387 ##### @SP
+388 ##### M=M+1
+// pop pointer 1
+389 ##### @SP
+390 ##### AM=M-1 // SP--
+391 ##### D=M// D=*SP
+392 ##### @THAT
+393 ##### M=D// THIS/THAT = *SP
+// push ARG 0
+394 ##### @ARG
+395 ##### D=M// D=ARG
+396 ##### @0
+397 ##### A=D+A// A=ARG+0
+398 ##### D=M// D=*(ARG+0)
+399 ##### @SP
+400 ##### A=M// A = SP
+401 ##### M=D// *SP = D
+402 ##### @SP
+403 ##### M=M+1// SP++
+// push const 12
+404 ##### @12
+405 ##### D=A
+406 ##### @SP
+407 ##### A=M
+408 ##### M=D
+409 ##### @SP
+410 ##### M=M+1
+// arithmetic add
+411 ##### @SP
+412 ##### AM=M-1// SP = SP--
+413 ##### D=M// D = *SP (second arg)
+414 ##### A=A-1// A = SP-1 (first arg)
+415 ##### MD=M+D// *SP + *(SP-1)
+// return
+// return the value to the caller
+416 ##### @SP// *ARG = pop()
+417 ##### AM=M-1
+418 ##### D=M// return value
+419 ##### @ARG
+420 ##### A=M
+421 ##### M=D
+// reposition SP of the caller
+422 ##### @ARG// SP = ARG + 1 
+423 ##### D=M+1
+// store retaddr as temp var
+424 ##### @SP
+425 ##### M=D
+426 ##### @5
+427 ##### D=A
+428 ##### @LCL
+429 ##### A=M-D
+430 ##### D=M
+431 ##### @SP
+432 ##### A=M
+433 ##### M=D
+434 ##### @LCL
+435 ##### AM=M-1
+436 ##### D=M
+437 ##### @THAT
+438 ##### M=D
+439 ##### @LCL
+440 ##### AM=M-1
+441 ##### D=M
+442 ##### @THIS
+443 ##### M=D
+444 ##### @LCL
+445 ##### AM=M-1
+446 ##### D=M
+447 ##### @ARG
+448 ##### M=D
+449 ##### @LCL
+450 ##### AM=M-1
+451 ##### D=M
+452 ##### @LCL
+453 ##### M=D
+454 ##### @SP
+455 ##### A=M
+456 ##### A=M
+457 ##### 0;JMP
+// end of returning
