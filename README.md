@@ -24,4 +24,4 @@ and interested in understanding and building a modern computer.
 
     This raise a question. Usually, parse tree (or grammar) doesn't affect the semantic of programming language but it does affect the semantic. Sometimes, we wish only compiler/interpreter handle the semantic of the language but we must consider the syntatical matter in this case. 
     
-    On the other hand, prefix and postfix expression are particularly convenient for evaluating expression. Postfix expression can be naturally applied to stack-based evaluation; prefix expression is just usual function call evaluation (or it is merely procedure application in LISP). Althought elegant implementation and consistency, prefix or postfix expressions are indeed ugly to newcomers.
+    On the other hand, prefix and postfix expression are particularly convenient for evaluating expression. Postfix expression can be naturally applied to stack-based evaluation; prefix expression is just usual function call evaluation (or it is merely procedure application in LISP). Although elegant implementation and consistency, prefix or postfix expressions are indeed ugly to newcomers.
